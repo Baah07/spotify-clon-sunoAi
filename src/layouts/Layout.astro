@@ -1,8 +1,9 @@
 ---
+// Esto es Typscript
 interface Props {
 	title: string;
 }
-
+// Tanto en javascrpt como en Typscript tenemos que recuperar una constante, en donde sacamos su "title" de Astro.props (astro es una varable global que funciona en todo los archivos.astro y que tiene diferente informacion como props, cookies, etc)
 const { title } = Astro.props;
 ---
 
@@ -20,31 +21,18 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global>
+
+<!-- "is:global" es una directiva que indica que estos estilos son globales, los que se ven en toda la pagina, no por compoenentes. --> 
+<style is:global> 
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		
 	}
 	html {
+		font-size: 62.5%; /* 62.5% de 16px = 10px (1rem) */ 
+		box-sizing: border-box;
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
 </style>
+<!--Estilos globales -->
