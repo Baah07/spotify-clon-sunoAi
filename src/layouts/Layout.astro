@@ -1,38 +1,106 @@
 ---
 // Esto es Typscript
 interface Props {
-	title: string;
+  title: string;
 }
-// Tanto en javascrpt como en Typscript tenemos que recuperar una constante, en donde sacamos su "title" de Astro.props (astro es una varable global que funciona en todo los archivos.astro y que tiene diferente informacion como props, cookies, etc)
+// Tanto en javascrpt como en Typscript tenemos que recuperar una constante, en donde sacamos su "title" de Astro.props (astro es una varable global que funciona en todo los archivos.astro y que tiene diferente informacion como props, es decir, propiedades inmutables que no se van a poder cambiar)
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+		<slot /> <!-- Es el contenedor o el espacio reservado en donde se renderiza el contenido html externo, como los componentes, etc. Es el componente base de un layout en astro-->
+	</div>
+
+  </body>
 </html>
 
-<!-- "is:global" es una directiva que indica que estos estilos son globales, los que se ven en toda la pagina, no por compoenentes. --> 
-<style is:global> 
-	:root {
-		
-	}
-	html {
-		font-size: 62.5%; /* 62.5% de 16px = 10px (1rem) */ 
-		box-sizing: border-box;
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
+<!-- "is:global" es una directiva que indica que estos estilos son globales, los que se ven en toda la pagina, no por compoenentes. -->
+<style is:global>
+  :root {
+  }
+  html {
+    font-size: 62.5%; /* 62.5% de 16px = 10px (1rem) */
+    box-sizing: border-box;
+    font-family: "circular Sp", system-ui, sans-serif;
+    background: #13151a;
+  }
+  body {
+    font-family: "CircularSp", system-ui, sans-serif, Arial, sans-serif; /* Aseguramos que se aplique en todo el cuerpo */
+  }
 
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-Light) format("otf");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-Book) format("otf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-BookItalic) format("otf");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-Medium) format("otf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-MediumItalic)
+      format("otf");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-Bold) format("otf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-Black) format("otf");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularSp";
+    src: url(/public/assets/fonts/CircularSpotifyText-BlackItalic) format("otf");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
 </style>
 <!--Estilos globales -->

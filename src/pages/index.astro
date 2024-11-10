@@ -1,19 +1,22 @@
 ---
-{/* El bloque de aqui que esta encerrado con tres guiones es el espacio en donde pueddes escribir javascript o typescript*/}
-{/* En donde podemos importar los componentes, los feching de datos (es la obtención de datos de fuentes externas, APIs)*/}
-import Layout from '../layouts/Layout.astro';
+  /* El bloque de aqui que esta encerrado con tres guiones es el espacio en donde pueddes escribir javascript o typescript*/
+  import Layout from "../layouts/Layout.astro";
+  import Header from "../components/Header.astro";
+  
 ---
 
 <!--- Aqui esta lo quw renderiza la pagina web, HTML mas o menos porque es muy parecido -->
 <Layout title="Welcome to Astro.">
-    <main>
-        
-    </main>
-<!--- Aqui esta lo quw renderiza la pagina web, HTML mas o menos -->
+<header>
+    <Header/>
+</header>
 
-  <!--- Aqui estan los estilos scope, CSS-->  
-  <!--- en donde solo se van a ver en el compoenete solo de este archivo no de la pagina completa-->  
-<style>
+  <main>
+  </main>
+  <!--- Aqui esta lo quw renderiza la pagina web, HTML mas o menos -->
 
-</style>
- <!--- Aqui estan los estilos scope, CSS--> 
+  <!--- Aqui estan los estilos scope, CSS-->
+  <!--- en donde solo se van a ver en el compoenete solo de este archivo no de la pagina completa-->
+  <style></style>
+  <!--- Aqui estan los estilos scope, CSS-->
+</Layout>

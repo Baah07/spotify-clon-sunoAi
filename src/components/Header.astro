@@ -1,0 +1,78 @@
+---
+console.log("javascript o typescript");
+
+// Importa el SVG como componente
+import SpotifyIcon from "../icons/Spotify.astro";
+import HomeIcon from "../icons/Home.astro";
+import SearchIcon from "../icons/Search.astro";
+import GithubIcon from "../icons/Github.astro";
+
+// Recibe una prop `href` para la URL a la que se dirigirá el enlace
+---
+
+<header class="header">
+  <!-- Logo de la aplicación -->
+  <div class="header__logo">
+    <a href="../pages/index.astro" aria-label="Spotify" class="logo__link">
+      <SpotifyIcon class="logo__icon" alt="Logo de spotify" />
+    </a>
+  </div>
+
+  <!-- Navegacion Principal -->
+  <div class="header_item">
+    <a href="../pages/index.astro" class="header__button" aria-label="Home">
+      <HomeIcon class="button__icon" />
+    </a>
+
+    <div class="item__search">
+      <SearchIcon class="search__icon" />
+      <input
+        class="search__input"
+        type="text"
+        placeholder="¿Qué quieres reproducir?"
+        aria-label="Buscar música"
+      />
+    </div>
+  </div>
+
+  <a class="github_button" href="https://github.com/Baah07/spotify-clon-sunoAi" target="_blank">
+    <GithubIcon class="github__icon" />
+  </a>
+</header>
+
+<style>
+    /* Estilos para el header */
+    .header {
+      @apply flex justify-between p-4 bg-black;
+    }
+  
+    /* Logo de la aplicación */
+    .header__logo {
+      @apply flex items-center mx-8;
+    }
+  
+    /* Estilos para el botón de Home */
+    .header__button {
+      @apply bg-[#1f1f1f] rounded-full p-3.5 flex items-center;
+    }
+  
+    /* Navegación principal */
+    .header_item {
+      @apply flex items-center gap-4;
+    }
+
+    /* Contenedor de búsqueda */
+    .item__search {
+      @apply flex items-center bg-[#1f1f1f] rounded-full px-3 py-3.5 w-[50rem];
+    }
+  
+    /* Input de búsqueda */
+    .search__input {
+      @apply bg-transparent border-none outline-none text-white pl-3 text-2xl;
+    }
+  
+    /* Botón de GitHub */
+    .github_button {
+      @apply flex items-center p-3 bg-[#1f1f1f] rounded-full mx-8;
+    }
+  </style>
