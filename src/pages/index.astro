@@ -1,51 +1,49 @@
 ---
-/* El bloque de aqui que esta encerrado con tres guiones es el espacio en donde pueddes escribir javascript o typescript*/
+// index.astro
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Aside from "@/components/Sidebar.astro";
+import Sidebar from "@/components/Sidebar.astro";
 import Main from "@/components/Main.astro";
 import Player from "@/components/Player.astro";
 
 const title = "SpotifyClon";
 ---
 
-<!--- Aqui esta lo quw renderiza la pagina web, HTML mas o menos porque es muy parecido -->
-  <Layout title={title}>
+<Layout title={title}>
+  <div id="body-app">
+
+    <header class="[grid-area:header]">
+      <Header />
+    </header>
 
 
-    <div class="container_app">
-
-        <div class="app__header">
-          <header>
-            <Header />
-          </header>
-        </div>
+    <aside class="[grid-area:sidebar] bg-[#121212] rounded-xl">
+      <Sidebar />
+    </aside>
 
 
-      <div class="body-app">
-        <div class="app__sidebar">
-          <aside>
-            <Aside />
-          </aside>
-        </div>
+    <main class="[grid-area:main] bg-[#121212] rounded-xl">
+      <Main />
+    </main>
 
-        <div class="app_main">
-          <main>
-            <Main />
-          </main>
-        </div>
+    
+    <footer class="[grid-area:player] bg-[#121212] rounded-xl">
+      <Player />
+    </footer>
+  </div>
+</Layout>
 
-        <div class="app__player">
-          <footer>
-            <Player />
-          </footer>
-        </div>
-      </div>
-
-    </div>
-
-  <style>
-
-
-  </style>
-  </Layout>
+<style is:global>
+  #body-app {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "sidebar main main"
+      "player player player";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    height: 100vh;
+    padding: 1rem;
+  }
+</style>

@@ -1,10 +1,5 @@
 ---
-import Main from '@/components/Main.astro';
-import Player from '@/components/Player.astro';
-import Sidebar from '@/components/Sidebar.astro';
-import Header from '@/components/Header.astro';
-
-// Esto es el Layout
+// layouts/Layout.astro
 interface Props {
   title: string;
 }
@@ -16,39 +11,13 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-
-
-  <header>
-
-    <Header/>
-
-  </header>
-
-
   <body>
-    <div id="body-app">
-      <!-- Slot para Sidebar -->
-      <div class="[grid-area:sidebar]  bg-[#121212] rounded-xl">
-        <Sidebar/>
-      </div>
-
-      <!-- Slot para Main -->
-      <div class="[grid-area:main] bg-[#121212] rounded-xl">
-        <Main/>
-      </div>
-
-      <!-- Slot para Player -->
-      <div class="[grid-area:player] bg-[#121212] rounded-xl">
-        <Player/>
-      </div>
-    </div>
+    <slot />
   </body>
-
 </html>
 
 
@@ -61,27 +30,16 @@ const { title } = Astro.props;
     box-sizing: border-box;
     font-family: "circular Sp", system-ui, sans-serif;
     background: #000;
+    color: white;
   
   }
-
-  #body-app {
-    @apply relative p-3 gap-3 [height:92.8vh];
-
-    display: grid;
-    grid-template-areas:
-      "sidebar main main"
-      "player player player";
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr auto;
-  }
-
   body {
     font-family: "CircularSp", system-ui, sans-serif, Arial, sans-serif; /* Aseguramos que se aplique en todo el cuerpo */
   }
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-Light) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-Light) format("otf");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -89,7 +47,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-Book) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-Book) format("otf");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -97,7 +55,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-BookItalic) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-BookItalic) format("otf");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -105,7 +63,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-Medium) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-Medium) format("otf");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -113,7 +71,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-MediumItalic)
+    src: url(/assets/fonts/CircularSpotifyText-MediumItalic)
       format("otf");
     font-weight: 500;
     font-style: italic;
@@ -122,7 +80,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-Bold) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-Bold) format("otf");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -130,7 +88,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-Black) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-Black) format("otf");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -138,7 +96,7 @@ const { title } = Astro.props;
 
   @font-face {
     font-family: "CircularSp";
-    src: url(/public/assets/fonts/CircularSpotifyText-BlackItalic) format("otf");
+    src: url(/assets/fonts/CircularSpotifyText-BlackItalic) format("otf");
     font-weight: 900;
     font-style: italic;
     font-display: swap;
