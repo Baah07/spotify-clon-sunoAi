@@ -1,22 +1,51 @@
 ---
-  /* El bloque de aqui que esta encerrado con tres guiones es el espacio en donde pueddes escribir javascript o typescript*/
-  import Layout from "../layouts/Layout.astro";
-  import Header from "../components/Header.astro";
-  
+/* El bloque de aqui que esta encerrado con tres guiones es el espacio en donde pueddes escribir javascript o typescript*/
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Aside from "@/components/Sidebar.astro";
+import Main from "@/components/Main.astro";
+import Player from "@/components/Player.astro";
+
+const title = "SpotifyClon";
 ---
 
 <!--- Aqui esta lo quw renderiza la pagina web, HTML mas o menos porque es muy parecido -->
-<Layout title="Welcome to Astro.">
-<header>
-    <Header/>
-</header>
+  <Layout title={title}>
 
-  <main>
-  </main>
-  <!--- Aqui esta lo quw renderiza la pagina web, HTML mas o menos -->
 
-  <!--- Aqui estan los estilos scope, CSS-->
-  <!--- en donde solo se van a ver en el compoenete solo de este archivo no de la pagina completa-->
-  <style></style>
-  <!--- Aqui estan los estilos scope, CSS-->
-</Layout>
+    <div class="container_app">
+
+        <div class="app__header">
+          <header>
+            <Header />
+          </header>
+        </div>
+
+
+      <div class="body-app">
+        <div class="app__sidebar">
+          <aside>
+            <Aside />
+          </aside>
+        </div>
+
+        <div class="app_main">
+          <main>
+            <Main />
+          </main>
+        </div>
+
+        <div class="app__player">
+          <footer>
+            <Player />
+          </footer>
+        </div>
+      </div>
+
+    </div>
+
+  <style>
+
+
+  </style>
+  </Layout>

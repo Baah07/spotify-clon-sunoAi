@@ -1,39 +1,80 @@
 ---
-// Esto es Typscript
+import Main from '@/components/Main.astro';
+import Player from '@/components/Player.astro';
+import Sidebar from '@/components/Sidebar.astro';
+import Header from '@/components/Header.astro';
+
+// Esto es el Layout
 interface Props {
   title: string;
 }
-// Tanto en javascrpt como en Typscript tenemos que recuperar una constante, en donde sacamos su "title" de Astro.props (astro es una varable global que funciona en todo los archivos.astro y que tiene diferente informacion como props, es decir, propiedades inmutables que no se van a poder cambiar)
+
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-		<slot /> <!-- Es el contenedor o el espacio reservado en donde se renderiza el contenido html externo, como los componentes, etc. Es el componente base de un layout en astro-->
-	</div>
 
+
+  <header>
+
+    <Header/>
+
+  </header>
+
+
+  <body>
+    <div id="body-app">
+      <!-- Slot para Sidebar -->
+      <div class="[grid-area:sidebar]  bg-[#121212] rounded-xl">
+        <Sidebar/>
+      </div>
+
+      <!-- Slot para Main -->
+      <div class="[grid-area:main] bg-[#121212] rounded-xl">
+        <Main/>
+      </div>
+
+      <!-- Slot para Player -->
+      <div class="[grid-area:player] bg-[#121212] rounded-xl">
+        <Player/>
+      </div>
+    </div>
   </body>
+
 </html>
 
-<!-- "is:global" es una directiva que indica que estos estilos son globales, los que se ven en toda la pagina, no por compoenentes. -->
+
 <style is:global>
   :root {
+  
   }
   html {
     font-size: 62.5%; /* 62.5% de 16px = 10px (1rem) */
     box-sizing: border-box;
     font-family: "circular Sp", system-ui, sans-serif;
-    background: #13151a;
+    background: #000;
+  
   }
+
+  #body-app {
+    @apply relative p-3 gap-3 [height:92.8vh];
+
+    display: grid;
+    grid-template-areas:
+      "sidebar main main"
+      "player player player";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr auto;
+  }
+
   body {
     font-family: "CircularSp", system-ui, sans-serif, Arial, sans-serif; /* Aseguramos que se aplique en todo el cuerpo */
   }
@@ -103,4 +144,5 @@ const { title } = Astro.props;
     font-display: swap;
   }
 </style>
+<!-- "is:global" es una directiva que indica que estos estilos son globales, los que se ven en toda la pagina, no por compoenentes. -->
 <!--Estilos globales -->

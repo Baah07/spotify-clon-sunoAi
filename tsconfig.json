@@ -1,3 +1,14 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "extends": "astro/tsconfigs/strict",
+
+
+  // Trasnformar la ruta absoluta en realtiva. En donde la ruta realtiva representa una parte de la ruta (se usa cuando estan todas las cosas en una misa carpeta como ahora que estan en el src), en vez uqe la ruta absoluta es todo el recorrido del archivo
+  "compilerOptions": {
+    "baseUrl":"src",
+    "paths": {
+      "@/*": [
+      "./*"
+      ] 
+    }
+  },
 }

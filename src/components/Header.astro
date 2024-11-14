@@ -9,6 +9,7 @@ import GithubIcon from "../icons/Github.astro";
 
 // Recibe una prop `href` para la URL a la que se dirigirá el enlace
 ---
+<div class="header-container">
 
 <header class="header">
   <!-- Logo de la aplicación -->
@@ -18,27 +19,26 @@ import GithubIcon from "../icons/Github.astro";
     </a>
   </div>
 
-  <!-- Navegacion Principal -->
+  
   <div class="header_item">
     <a href="../pages/index.astro" class="header__button" aria-label="Home">
       <HomeIcon class="button__icon" />
     </a>
-
     <div class="item__search">
       <SearchIcon class="search__icon" />
-      <input
-        class="search__input"
-        type="text"
-        placeholder="¿Qué quieres reproducir?"
-        aria-label="Buscar música"
+      <input class="search__input" type="text" placeholder="¿Qué quieres reproducir?" aria-label="Buscar música"
       />
     </div>
   </div>
+
 
   <a class="github_button" href="https://github.com/Baah07/spotify-clon-sunoAi" target="_blank">
     <GithubIcon class="github__icon" />
   </a>
 </header>
+</div>
+
+
 
 <style>
     /* Estilos para el header */
@@ -64,6 +64,10 @@ import GithubIcon from "../icons/Github.astro";
     /* Contenedor de búsqueda */
     .item__search {
       @apply flex items-center bg-[#1f1f1f] rounded-full px-3 py-3.5 w-[50rem];
+    }
+
+    .item__search:hover {
+      @apply flex items-center bg-[#2e2e2e] rounded-full px-3 py-3.5 w-[50rem];
     }
   
     /* Input de búsqueda */
