@@ -1,0 +1,85 @@
+---
+import SearchIcon from "@/icons/Search.astro"
+---
+
+<div class="search-bar">
+    <input type="text" class="search-bar__input" placeholder="Busca en Tu biblioteca"/>
+    <button class="search-bar__submit">
+      <SearchIcon class="search__icon" />
+    </button>
+  </div>
+
+
+  <style>
+  /* Search Bar */
+  .search-bar {
+    --size: 3rem;
+    --padding: 0.6rem;
+    --expanded-width: 30rem;
+
+    display: flex;
+    background-color: #2e2e2e;
+    justify-content: flex-end;
+    border-radius: 0.5rem;
+    outline: 0.1rem solid transparent;
+    overflow: hidden;
+
+    padding: var(--padding);
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    width: var(--size);
+    height: var(--size);
+    max-width: 100%;
+    transition:
+      ease-in 0.6s,
+      outline 0.6s;
+  }
+
+  .search-bar:hover {
+    box-shadow: 0 10px 10px 0 #000;
+    background-color: #2e2e2e;
+  }
+
+  .search-bar:active {
+    box-shadow: 0 10px 10px 0 #000;
+    background-color: #2e2e2e;
+  }
+
+  .search-bar:focus-within {
+    width: var(--expanded-width);
+    outline: 0.1px solid #2e2e2e;
+  }
+
+  .search-bar__input {
+    font-size: 1.8rem;
+    color: #b3b3b3;
+    font-weight: normal;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-inline: 1rem;
+    flex: auto;
+
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .search-bar:focus-within .search-bar__input {
+    opacity: 1;
+  }
+
+  .search-bar__submit {
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    width: calc(var(--size) - var(--padding) - var(--padding));
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+  /* Search Bar */
+ </style>

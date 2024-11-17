@@ -1,0 +1,39 @@
+---
+console.log("javascript o typescript");
+
+
+import PlaylistItem from "@/components/molecules/PlaylistItem.astro";
+
+import { playlists, type Playlist } from "@/lib/data";
+import SidebarMenu from "../molecules/SidebarMenu.astro";
+
+---
+
+  <div class="sidebar-container">
+
+    <header class="sidebar    m-10">
+
+      <div class="sidebar__menu">
+        <SidebarMenu />
+      </div>
+
+      <div class="sidebar__playlistsItem">
+        {playlists.map((playlist) => (
+          <PlaylistItem playlist={playlist} />
+        ))}
+      </div>
+
+    </header>
+
+  </div>
+
+
+
+<!-- Estilos CSS y TailwindCss -->
+
+<style>
+  
+</style>
+
+
+<!-- Estilos CSS  y TailwindCss-->

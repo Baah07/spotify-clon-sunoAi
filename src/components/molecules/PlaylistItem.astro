@@ -1,0 +1,44 @@
+---
+import type { Playlist } from "@/lib/data";
+
+interface Props {
+  playlist: Playlist;
+}
+
+const { playlist } = Astro.props;
+const { id, cover, title, artists, color } = playlist;
+
+const artistsString = artists.join(", "); // No es lo mas correcto usar un join sino que usar la internalizacion con el "ListFormat" (poruqe al final pudes tener mas de una idioma)
+---
+
+<div class="container__playlist">
+
+  <a
+    href={"/playlist/${id}"}
+    class="playlist    flex relative rounded-xl p-[8px] hover:bg-[#2a2a2a] overflow-hidden items-center -ml-3">
+
+    <picture class="playlist__picture-container    h-20 w-20 flex-none">
+  
+      <img
+        src={cover}
+        alt={"Cover of ${title} by ${artistsString}"}
+        class="playlist__picture    object-cover w-full h-full rounded-md"
+      />
+    <!-- Esta etiqueta sirve para envolver imagenes -->
+    </picture>
+
+    <div class="playlist__text-container    ml-5">
+      <h3 class="playlist__title">
+        {title}
+      </h3>
+
+      <span class="playlist__subtitle">
+        Lista • Spotify 
+      </span>
+    </div>
+
+  </a>
+
+</div>
+
+

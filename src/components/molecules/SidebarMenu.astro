@@ -1,0 +1,35 @@
+---
+import LibraryIcon from "@/icons/Library.astro";
+
+import SearchButton from "@/components/atoms/SearchButton.astro"
+import Tabs from "@/components/atoms/Tabs.astro"
+---
+  <div class="sidebar-menu">
+
+    <div class="sidebar-menu__items">
+      <LibraryIcon class="sidebar-menu__icon" />
+      <div class="sidebar-menu__title">Tu biblioteca</div>
+    </div>
+
+    <div class="sidebar-menu__tabs">
+      <Tabs />
+    </div>
+
+    <div class="sidebar-menu__search-bar">
+      <SearchButton />
+    </div>
+
+  </div>
+
+
+
+<style>
+    /* Tabs */
+    .items {
+      @apply flex justify-start gap-[1.5rem] items-center;
+    }
+  
+    .items__title {
+      @apply text-[1.6rem] text-[#b3b3b3] font-bold;
+    }
+  </style>
